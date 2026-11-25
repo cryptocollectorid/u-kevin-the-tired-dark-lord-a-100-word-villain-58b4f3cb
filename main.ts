@@ -14,5 +14,12 @@ const MONOLOGUE =
   "eclipse. So. Strike, or... could you strike at nine? I'll hold still. " +
   "The ninth bell, hero. Don't be late.";
 
+// The competition's gate: entry.txt must be UTF-8 text of 1-600 characters.
+if (MONOLOGUE.length < 1 || MONOLOGUE.length > 600) {
+  throw new Error(
+    `monologue is ${MONOLOGUE.length} characters, outside the 1-600 gate`,
+  );
+}
+
 mkdirSync("/output", { recursive: true });
 writeFileSync("/output/entry.txt", MONOLOGUE, "utf8");
